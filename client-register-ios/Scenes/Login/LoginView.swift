@@ -22,16 +22,15 @@ internal final class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpView() {
-        buildViewHierarchy()
-        setUpConstraints()
-        
-        backgroundColor = .white
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundPressed(_:)))
-        self.addGestureRecognizer(tapGesture)
-    }
     
+    
+    @objc func backgroundPressed(_ sender: UIView) {
+        subviews.forEach{ $0.resignFirstResponder() }
+    }
+}
+
+// MARK:- Programatical Layout
+extension LoginView: ProgramaticalLayoutable {
     func buildViewHierarchy() {
         addSubview(usernameTextField)
         addSubview(passwordTextField)
@@ -61,11 +60,16 @@ internal final class LoginView: UIView {
         ])
     }
     
-    @objc func backgroundPressed(_ sender: UIView) {
-        subviews.forEach{ $0.resignFirstResponder() }
+    func setUpAdditionalConfig() {
+        backgroundColor = .white
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundPressed(_:)))
+        self.addGestureRecognizer(tapGesture)
     }
 }
 
+
+// MARK:- UI components
 private func prepareUsernameTextField() -> UITextField {
     let textField = UITextField()
     textField.translatesAutoresizingMaskIntoConstraints = false

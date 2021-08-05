@@ -16,6 +16,7 @@
 		614C635726BB4596009BD20D /* client_register_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C635626BB4596009BD20D /* client_register_iosUITests.swift */; };
 		614C636B26BB6E0D009BD20D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C636A26BB6E0D009BD20D /* LoginViewController.swift */; };
 		614C636D26BB6EF0009BD20D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C636C26BB6EF0009BD20D /* LoginView.swift */; };
+		614C638D26BB77C5009BD20D /* ProgramaticalLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C638C26BB77C5009BD20D /* ProgramaticalLayoutable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		614C635826BB4596009BD20D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		614C636A26BB6E0D009BD20D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		614C636C26BB6EF0009BD20D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		614C638C26BB77C5009BD20D /* ProgramaticalLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramaticalLayoutable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		614C633326BB4595009BD20D /* client-register-ios */ = {
 			isa = PBXGroup;
 			children = (
+				614C638B26BB77B4009BD20D /* Protocols */,
 				614C636826BB6DFC009BD20D /* Scenes */,
 				614C633426BB4595009BD20D /* AppDelegate.swift */,
 				614C633626BB4595009BD20D /* SceneDelegate.swift */,
@@ -145,6 +148,14 @@
 				614C636C26BB6EF0009BD20D /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		614C638B26BB77B4009BD20D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				614C638C26BB77C5009BD20D /* ProgramaticalLayoutable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +291,7 @@
 				614C633926BB4595009BD20D /* ViewController.swift in Sources */,
 				614C633526BB4595009BD20D /* AppDelegate.swift in Sources */,
 				614C636D26BB6EF0009BD20D /* LoginView.swift in Sources */,
+				614C638D26BB77C5009BD20D /* ProgramaticalLayoutable.swift in Sources */,
 				614C633726BB4595009BD20D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
