@@ -8,14 +8,14 @@
 import UIKit
 
 internal protocol FormNavigatable {
-    var navigationController: UINavigationController { get }
+    var navigationController: UINavigationController? { get }
     
     func navigateToForm()
 }
 
 extension FormNavigatable {
     func navigateToForm() {
-        let form = UIViewController()
-        navigationController.pushViewController(form, animated: true)
+        let form = FormViewController()
+        navigationController?.pushViewController(form, animated: true)
     }
 }

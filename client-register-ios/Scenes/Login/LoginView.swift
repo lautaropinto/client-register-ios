@@ -11,10 +11,13 @@ internal final class LoginView: UIView {
     let usernameTextField = prepareUsernameTextField()
     let passwordTextField = preparePasswordTextField()
     let signInButton = prepareSignInButton()
-    let facebookButton = prepareFacebookButton()
+    let facebookButton = prepareFacebookButton() // TODO:- IMPLEMENTAR.
+    public weak var delegate: LoginDelegate?
     
-    init() {
+    init(delegate: LoginDelegate? = nil) {
         super.init(frame: .zero)
+        self.delegate = delegate
+        
         setUpView()
     }
     
@@ -26,6 +29,15 @@ internal final class LoginView: UIView {
     
     @objc func backgroundPressed(_ sender: UIView) {
         subviews.forEach{ $0.resignFirstResponder() }
+    }
+    
+    @objc func signInButtonPressed(_ sender: UIButton) {
+        guard let username = usernameTextField.text,
+              let password = passwordTextField.text else {
+            return //TODO: implement error handling.
+        }
+        
+        delegate?.signInButtonPressed(username: username, password: password)
     }
 }
 
@@ -65,6 +77,8 @@ extension LoginView: ProgramaticalLayoutable {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundPressed(_:)))
         self.addGestureRecognizer(tapGesture)
+        
+        signInButton.addTarget(self, action: #selector(signInButtonPressed(_:)), for: .touchUpInside)
     }
 }
 

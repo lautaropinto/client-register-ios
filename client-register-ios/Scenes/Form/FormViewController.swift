@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FormViewController: UIViewController {
+internal final class FormViewController: UIViewController {
     let mainView = FormView()
     
     override func viewDidLoad() {

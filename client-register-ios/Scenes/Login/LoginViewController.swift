@@ -7,11 +7,12 @@
 
 import UIKit
 
-internal final class LoginViewController: UIViewController {
+internal final class LoginViewController: UIViewController, LoginActionable {
     let mainView = LoginView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainView.delegate = self
     }
     
     override func loadView() {
