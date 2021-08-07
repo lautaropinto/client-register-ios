@@ -7,21 +7,6 @@
 
 import Foundation
 
-// Revisar si queremos este protocolo llamado LoginActionable, puede que esto se tenga que implementar en el Controller.
-/// Implements Login use case. It should integrate Form navigation, LoginView and SignIn
-internal protocol LoginActionable: LoginDelegate, FirebaseSignInActionable, FormNavigatable {
-    var mainView: LoginView { get }
-}
-
-extension LoginActionable {
-    func signInButtonPressed(username: String, password: String) {
-        signIn(username: username, password: password, success: { [weak self] in
-            self?.navigateToForm()
-        })
-    }
-}
-
-
 /// Implements Login view actions.
 internal protocol LoginDelegate: AnyObject {
     /**

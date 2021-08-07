@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal final class LoginViewController: UIViewController, LoginActionable {
+internal final class LoginViewController: UIViewController, LoginDelegate, FirebaseSignInActionable, FormNavigatable {
     let mainView = LoginView()
     
     override func viewDidLoad() {
@@ -17,5 +17,11 @@ internal final class LoginViewController: UIViewController, LoginActionable {
     
     override func loadView() {
         self.view = mainView
+    }
+    
+    func signInButtonPressed(username: String, password: String) {
+        signIn(username: username, password: password, success: { [weak self] in
+            self?.navigateToForm()
+        })
     }
 }
