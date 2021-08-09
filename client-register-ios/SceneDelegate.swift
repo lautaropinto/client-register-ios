@@ -25,9 +25,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
     
-        let login = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: login)
+        let root: UIViewController
         
+        if Auth.auth().currentUser != nil {
+            root = FormViewController()
+        } else {
+            root = LoginViewController()
+        }
+        
+        let navigationController = UINavigationController(rootViewController: root)
         window?.windowScene = windowScene
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

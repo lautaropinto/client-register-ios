@@ -24,11 +24,11 @@ internal final class LoginViewController: UIViewController, LoginDelegate, Fireb
     func signInButtonPressed(username: String, password: String) {
         signIn(username: username, password: password, success: { [weak self] in
             self?.navigateToForm()
+            // TODO: Remove login from stack
         }, failure: { _ in
             print("Error")
         })
     }
-    
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         if error != nil {
@@ -49,6 +49,10 @@ internal final class LoginViewController: UIViewController, LoginDelegate, Fireb
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Unable to signout")
+        }
     }
 }
