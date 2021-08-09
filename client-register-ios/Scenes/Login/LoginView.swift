@@ -6,18 +6,23 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 internal final class LoginView: UIView {
     let usernameTextField = prepareUsernameTextField()
     let passwordTextField = preparePasswordTextField()
     let signInButton = prepareSignInButton()
-    let facebookButton = prepareFacebookButton() // TODO:- IMPLEMENTAR.
-    public weak var delegate: LoginDelegate?
+    let facebookButton: FBLoginButton = prepareFacebookButton()
+    
+    public weak var delegate: LoginDelegate? {
+        didSet {
+            facebookButton.delegate = delegate
+        }
+    }
     
     init(delegate: LoginDelegate? = nil) {
         super.init(frame: .zero)
         self.delegate = delegate
-        
         setUpView()
     }
     
@@ -79,6 +84,8 @@ extension LoginView: ProgramaticalLayoutable {
         self.addGestureRecognizer(tapGesture)
         
         signInButton.addTarget(self, action: #selector(signInButtonPressed(_:)), for: .touchUpInside)
+
+        facebookButton.permissions = ["public_profile", "email"]
     }
 }
 
@@ -110,11 +117,9 @@ private func prepareSignInButton() -> UIButton {
     return button
 }
 
-private func prepareFacebookButton() -> UIButton {
-    let button = UIButton()
+private func prepareFacebookButton() -> FBLoginButton {
+    let button = FBLoginButton()
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle("Facebook sign in", for: .normal)
-    button.setTitleColor(.black, for: .normal)
     
     return button
 }
