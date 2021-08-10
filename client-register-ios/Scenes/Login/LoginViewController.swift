@@ -24,15 +24,20 @@ internal final class LoginViewController: UIViewController, LoginDelegate,
     }
     
     func signInButtonPressed(username: String, password: String) {
+        showSpinner(onView: view)
         signIn(username: username, password: password, success: { [weak self] in
             self?.navigateToForm(cleanNavigationStack: true)
-        }, failure: { error in
+            self?.removeSpinner()
+        }, failure: { [weak self] error in
             print("Login error", error)
+            self?.removeSpinner()
         })
     }
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        showSpinner(onView: view)
         if error != nil {
+            removeSpinner()
             return
         }
         
@@ -43,8 +48,10 @@ internal final class LoginViewController: UIViewController, LoginDelegate,
             if let error = error {
                 let authError = error as NSError
                 print("Auth error:", authError)
+                self?.removeSpinner()
                 return
             }
+            self?.removeSpinner()
             self?.navigateToForm(cleanNavigationStack: true)
         })
     }

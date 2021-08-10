@@ -12,6 +12,7 @@ internal final class FormViewController: UIViewController, Logoutable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(rightButtonTapped))
 
     }

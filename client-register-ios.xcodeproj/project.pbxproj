@@ -10,6 +10,7 @@
 		61277BD326C2FBBF005203F2 /* FormFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BD226C2FBBF005203F2 /* FormFieldCell.swift */; };
 		61277BD826C333DB005203F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BD726C333DB005203F2 /* SignUpViewController.swift */; };
 		61277BDA26C333E8005203F2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BD926C333E8005203F2 /* SignUpView.swift */; };
+		61277BDD26C33D49005203F2 /* UIViewController+spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BDC26C33D49005203F2 /* UIViewController+spinner.swift */; };
 		614C633526BB4595009BD20D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633426BB4595009BD20D /* AppDelegate.swift */; };
 		614C633726BB4595009BD20D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633626BB4595009BD20D /* SceneDelegate.swift */; };
 		614C633926BB4595009BD20D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633826BB4595009BD20D /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 		61277BD226C2FBBF005203F2 /* FormFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldCell.swift; sourceTree = "<group>"; };
 		61277BD726C333DB005203F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		61277BD926C333E8005203F2 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		61277BDC26C33D49005203F2 /* UIViewController+spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+spinner.swift"; sourceTree = "<group>"; };
 		614C633126BB4595009BD20D /* client-register-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client-register-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		614C633426BB4595009BD20D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		614C633626BB4595009BD20D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		61277BDB26C33D36005203F2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				61277BDC26C33D49005203F2 /* UIViewController+spinner.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		614C632826BB4595009BD20D = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +155,7 @@
 		614C633326BB4595009BD20D /* client-register-ios */ = {
 			isa = PBXGroup;
 			children = (
+				61277BDB26C33D36005203F2 /* Extensions */,
 				618CEDA626BEF2E600C31AE6 /* GoogleService-Info.plist */,
 				614C638E26BB7899009BD20D /* UseCases */,
 				614C638B26BB77B4009BD20D /* Protocols */,
@@ -496,6 +507,7 @@
 				614C638D26BB77C5009BD20D /* ProgramaticalLayoutable.swift in Sources */,
 				614C639526BB796C009BD20D /* FormView.swift in Sources */,
 				614C639326BB795D009BD20D /* FormViewController.swift in Sources */,
+				61277BDD26C33D49005203F2 /* UIViewController+spinner.swift in Sources */,
 				614C633726BB4595009BD20D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
