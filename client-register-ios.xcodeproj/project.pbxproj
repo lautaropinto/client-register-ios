@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		61277BD326C2FBBF005203F2 /* FormFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BD226C2FBBF005203F2 /* FormFieldCell.swift */; };
+		61277BD826C333DB005203F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BD726C333DB005203F2 /* SignUpViewController.swift */; };
+		61277BDA26C333E8005203F2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BD926C333E8005203F2 /* SignUpView.swift */; };
 		614C633526BB4595009BD20D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633426BB4595009BD20D /* AppDelegate.swift */; };
 		614C633726BB4595009BD20D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633626BB4595009BD20D /* SceneDelegate.swift */; };
 		614C633926BB4595009BD20D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633826BB4595009BD20D /* ViewController.swift */; };
@@ -18,7 +20,7 @@
 		614C636B26BB6E0D009BD20D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C636A26BB6E0D009BD20D /* LoginViewController.swift */; };
 		614C636D26BB6EF0009BD20D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C636C26BB6EF0009BD20D /* LoginView.swift */; };
 		614C638D26BB77C5009BD20D /* ProgramaticalLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C638C26BB77C5009BD20D /* ProgramaticalLayoutable.swift */; };
-		614C639026BB78B5009BD20D /* FormNavigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C638F26BB78B5009BD20D /* FormNavigatable.swift */; };
+		614C639026BB78B5009BD20D /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C638F26BB78B5009BD20D /* Navigatable.swift */; };
 		614C639326BB795D009BD20D /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C639226BB795D009BD20D /* FormViewController.swift */; };
 		614C639526BB796C009BD20D /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C639426BB796C009BD20D /* FormView.swift */; };
 		614C639726BB8CC6009BD20D /* LoginActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C639626BB8CC6009BD20D /* LoginActionable.swift */; };
@@ -52,6 +54,8 @@
 		491125AA3A5F20B8F588B125 /* Pods-client-register-ios-client-register-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client-register-ios-client-register-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-client-register-ios-client-register-iosUITests/Pods-client-register-ios-client-register-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		589F674930EB16832796017A /* Pods-client-register-ios-client-register-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client-register-ios-client-register-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-client-register-ios-client-register-iosUITests/Pods-client-register-ios-client-register-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		61277BD226C2FBBF005203F2 /* FormFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldCell.swift; sourceTree = "<group>"; };
+		61277BD726C333DB005203F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		61277BD926C333E8005203F2 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		614C633126BB4595009BD20D /* client-register-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client-register-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		614C633426BB4595009BD20D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		614C633626BB4595009BD20D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +72,7 @@
 		614C636A26BB6E0D009BD20D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		614C636C26BB6EF0009BD20D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		614C638C26BB77C5009BD20D /* ProgramaticalLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramaticalLayoutable.swift; sourceTree = "<group>"; };
-		614C638F26BB78B5009BD20D /* FormNavigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormNavigatable.swift; sourceTree = "<group>"; };
+		614C638F26BB78B5009BD20D /* Navigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
 		614C639226BB795D009BD20D /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		614C639426BB796C009BD20D /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		614C639626BB8CC6009BD20D /* LoginActionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginActionable.swift; sourceTree = "<group>"; };
@@ -107,6 +111,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61277BD526C333AF005203F2 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				61277BD726C333DB005203F2 /* SignUpViewController.swift */,
+				61277BD926C333E8005203F2 /* SignUpView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		614C632826BB4595009BD20D = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +180,7 @@
 		614C636826BB6DFC009BD20D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				61277BD526C333AF005203F2 /* SignUp */,
 				614C639126BB7950009BD20D /* Form */,
 				614C636926BB6E01009BD20D /* Login */,
 			);
@@ -193,7 +207,7 @@
 		614C638E26BB7899009BD20D /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				614C638F26BB78B5009BD20D /* FormNavigatable.swift */,
+				614C638F26BB78B5009BD20D /* Navigatable.swift */,
 				614C639626BB8CC6009BD20D /* LoginActionable.swift */,
 			);
 			path = UseCases;
@@ -475,8 +489,10 @@
 				61277BD326C2FBBF005203F2 /* FormFieldCell.swift in Sources */,
 				614C633926BB4595009BD20D /* ViewController.swift in Sources */,
 				614C633526BB4595009BD20D /* AppDelegate.swift in Sources */,
-				614C639026BB78B5009BD20D /* FormNavigatable.swift in Sources */,
+				614C639026BB78B5009BD20D /* Navigatable.swift in Sources */,
+				61277BD826C333DB005203F2 /* SignUpViewController.swift in Sources */,
 				614C636D26BB6EF0009BD20D /* LoginView.swift in Sources */,
+				61277BDA26C333E8005203F2 /* SignUpView.swift in Sources */,
 				614C638D26BB77C5009BD20D /* ProgramaticalLayoutable.swift in Sources */,
 				614C639526BB796C009BD20D /* FormView.swift in Sources */,
 				614C639326BB795D009BD20D /* FormViewController.swift in Sources */,

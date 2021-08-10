@@ -9,7 +9,9 @@ import UIKit
 import FBSDKLoginKit
 import Firebase
 
-internal final class LoginViewController: UIViewController, LoginDelegate, FirebaseSignInActionable, FormNavigatable, Logoutable {
+internal final class LoginViewController: UIViewController, LoginDelegate,
+                                          FirebaseSignInActionable, FormNavigatable,
+                                          Logoutable, SignUpNavigatable {
     let mainView = LoginView()
     
     override func viewDidLoad() {
@@ -24,9 +26,8 @@ internal final class LoginViewController: UIViewController, LoginDelegate, Fireb
     func signInButtonPressed(username: String, password: String) {
         signIn(username: username, password: password, success: { [weak self] in
             self?.navigateToForm(cleanNavigationStack: true)
-            // TODO: Remove login from stack
-        }, failure: { _ in
-            print("Error")
+        }, failure: { error in
+            print("Login error", error)
         })
     }
     
@@ -50,5 +51,9 @@ internal final class LoginViewController: UIViewController, LoginDelegate, Fireb
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         logout()
+    }
+    
+    func signUpButtonPressed() {
+        navigateToSignUp()
     }
 }

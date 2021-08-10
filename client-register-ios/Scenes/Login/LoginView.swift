@@ -13,8 +13,9 @@ internal final class LoginView: UIView {
     let passwordTextField = preparePasswordTextField()
     let signInButton = prepareSignInButton()
     let facebookButton: FBLoginButton = prepareFacebookButton()
+    let signUpButton = prepareSignUpButton() //TODO: Replace with attributed string
     
-    public weak var delegate: LoginDelegate? {
+    internal weak var delegate: LoginDelegate? {
         didSet {
             facebookButton.delegate = delegate
         }
@@ -44,15 +45,20 @@ internal final class LoginView: UIView {
         
         delegate?.signInButtonPressed(username: username, password: password)
     }
+    
+    @objc func signUpButtonPressed(_ sender: UIButton) {
+        delegate?.signUpButtonPressed()
+    }
 }
 
 // MARK:- Programatical Layout
 extension LoginView: ProgramaticalLayoutable {
     func buildViewHierarchy() {
-        addSubview(usernameTextField)
-        addSubview(passwordTextField)
-        addSubview(signInButton)
-        addSubview(facebookButton)
+        [usernameTextField,
+         passwordTextField,
+         signInButton,
+         facebookButton,
+         signUpButton].forEach {addSubview($0)}
     }
     
     func setUpConstraints() {
@@ -68,12 +74,17 @@ extension LoginView: ProgramaticalLayoutable {
             facebookButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             facebookButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             facebookButton.heightAnchor.constraint(equalToConstant: 48),
-            facebookButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
+            facebookButton.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -30),
             
             signInButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             signInButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             signInButton.heightAnchor.constraint(equalToConstant: 48),
             signInButton.bottomAnchor.constraint(equalTo: facebookButton.topAnchor, constant: -30),
+            
+            signUpButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            signUpButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            signUpButton.heightAnchor.constraint(equalToConstant: 48),
+            signUpButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -30),
         ])
     }
     
@@ -84,14 +95,15 @@ extension LoginView: ProgramaticalLayoutable {
         self.addGestureRecognizer(tapGesture)
         
         signInButton.addTarget(self, action: #selector(signInButtonPressed(_:)), for: .touchUpInside)
-
+        signUpButton.addTarget(self, action: #selector(signUpButtonPressed(_:)), for: .touchUpInside)
+        
         facebookButton.permissions = ["public_profile", "email"]
     }
 }
 
 
 // MARK:- UI components
-private func prepareUsernameTextField() -> UITextField {
+internal func prepareUsernameTextField() -> UITextField {
     let textField = UITextField()
     textField.translatesAutoresizingMaskIntoConstraints = false
     textField.placeholder = "Phone, email or username"
@@ -99,7 +111,7 @@ private func prepareUsernameTextField() -> UITextField {
     return textField
 }
 
-private func preparePasswordTextField() -> UITextField {
+internal func preparePasswordTextField() -> UITextField {
     let textField = UITextField()
     textField.translatesAutoresizingMaskIntoConstraints = false
     textField.placeholder = "Password"
@@ -111,7 +123,16 @@ private func preparePasswordTextField() -> UITextField {
 private func prepareSignInButton() -> UIButton {
     let button = UIButton()
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle("Sign in", for: .normal)
+    button.setTitle("Login", for: .normal)
+    button.setTitleColor(.black, for: .normal)
+    
+    return button
+}
+
+private func prepareSignUpButton() -> UIButton {
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitle("Sign Up", for: .normal)
     button.setTitleColor(.black, for: .normal)
     
     return button

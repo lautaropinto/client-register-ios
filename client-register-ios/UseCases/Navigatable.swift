@@ -23,3 +23,16 @@ extension FormNavigatable {
         }
     }
 }
+
+internal protocol SignUpNavigatable {
+    var navigationController: UINavigationController? { get }
+    
+    func navigateToSignUp()
+}
+
+extension FormNavigatable {
+    func navigateToSignUp() {
+        let signUp = SignUpViewController()
+        navigationController?.pushViewController(signUp, animated: true)
+    }
+}

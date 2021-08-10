@@ -12,11 +12,16 @@ import Firebase
 /// Implements Login view actions.
 internal protocol LoginDelegate: LoginButtonDelegate {
     /**
-     It handles the view action.
+     It handles the login action.
      - Parameter `username`: Input in username textfield.
      - Parameter `password`: Input in password textfield.
      */
     func signInButtonPressed(username: String, password: String)
+    
+    /**
+     It handles the sign up action.
+     */
+    func signUpButtonPressed()
 }
 
 /// Implements SignIn functionality.
@@ -34,8 +39,13 @@ internal protocol FirebaseSignInActionable: SignInActionable {}
 
 extension FirebaseSignInActionable {
     func signIn(username: String, password: String, success: (() ->())?, failure: ((Error) ->())?) {
-        success?()
-        //TODO: implement firebase sign in.
+        Auth.auth().signIn(withEmail: username, password: password) {authResult, error in
+            if let unwrapedError = error {
+                failure?(unwrapedError)
+                return
+            }
+            success?()
+        }
     }
 }
 
