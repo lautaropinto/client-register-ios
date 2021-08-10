@@ -7,7 +7,7 @@
 
 import UIKit
 
-var vSpinner : UIView?
+private var spinner : UIView?
 
 internal extension UIViewController {
     func showSpinner(onView : UIView) {
@@ -22,13 +22,13 @@ internal extension UIViewController {
             onView.addSubview(spinnerView)
         }
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        vSpinner = spinnerView
+        spinner = spinnerView
     }
     
     func removeSpinner() {
         DispatchQueue.main.async {
-            vSpinner?.removeFromSuperview()
-            vSpinner = nil
+            spinner?.removeFromSuperview()
+            spinner = nil
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
     }
