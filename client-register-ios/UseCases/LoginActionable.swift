@@ -7,6 +7,7 @@
 
 import Foundation
 import FBSDKLoginKit
+import Firebase
 
 /// Implements Login view actions.
 internal protocol LoginDelegate: LoginButtonDelegate {
@@ -35,5 +36,24 @@ extension FirebaseSignInActionable {
     func signIn(username: String, password: String, success: (() ->())?, failure: ((Error) ->())?) {
         success?()
         //TODO: implement firebase sign in.
+    }
+}
+
+internal protocol Logoutable {
+    var navigationController: UINavigationController? { get }
+    
+    func logout()
+}
+
+extension Logoutable {
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            LoginManager().logOut()
+            let login = LoginViewController()
+            navigationController?.setViewControllers([login], animated: true)
+        } catch {
+            print("Unable to signout")
+        }
     }
 }

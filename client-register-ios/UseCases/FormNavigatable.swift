@@ -10,12 +10,16 @@ import UIKit
 internal protocol FormNavigatable {
     var navigationController: UINavigationController? { get }
     
-    func navigateToForm()
+    func navigateToForm(cleanNavigationStack: Bool)
 }
 
 extension FormNavigatable {
-    func navigateToForm() {
+    func navigateToForm(cleanNavigationStack: Bool) {
         let form = FormViewController()
-        navigationController?.pushViewController(form, animated: true)
+        if cleanNavigationStack {
+            navigationController?.setViewControllers([form], animated: true)
+        } else {
+            navigationController?.pushViewController(form, animated: true)
+        }
     }
 }

@@ -7,14 +7,20 @@
 
 import UIKit
 
-internal final class FormViewController: UIViewController {
+internal final class FormViewController: UIViewController, Logoutable {
     let mainView = FormView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(rightButtonTapped))
+
     }
     
     override func loadView() {
         self.view = mainView
+    }
+    
+    @objc func rightButtonTapped() {
+        logout()
     }
 }
