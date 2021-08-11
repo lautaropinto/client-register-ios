@@ -130,6 +130,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		61277BDE26C36BDB005203F2 /* ClientList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ClientList;
+			sourceTree = "<group>";
+		};
 		614C632826BB4595009BD20D = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +198,7 @@
 		614C636826BB6DFC009BD20D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				61277BDE26C36BDB005203F2 /* ClientList */,
 				61277BD526C333AF005203F2 /* SignUp */,
 				614C639126BB7950009BD20D /* Form */,
 				614C636926BB6E01009BD20D /* Login */,

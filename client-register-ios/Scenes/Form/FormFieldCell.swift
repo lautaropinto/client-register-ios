@@ -9,6 +9,8 @@ import UIKit
 
 class FormFieldCell: UITableViewCell {
     let input = prepareInput()
+    var id: String = ""
+    var inputEditEnd: ((_ text: String) -> Void)?
     
     var placeHolder: String = "" {
         didSet {
@@ -30,7 +32,8 @@ class FormFieldCell: UITableViewCell {
     }
     
     @objc func textFieldDidChanged(_ textField: UITextField) {
-        print("Cambiando de input")
+        guard let text = textField.text else { return }
+        inputEditEnd?(text)
     }
 
 }

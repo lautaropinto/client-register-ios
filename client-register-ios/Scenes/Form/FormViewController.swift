@@ -6,15 +6,27 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import Firebase
 
-internal final class FormViewController: UIViewController, Logoutable {
+internal final class FormViewController: UIViewController, Logoutable, FormDelegate, ClientAddable {
     let mainView = FormView()
+    var ref: DatabaseReference
+
+    init(ref: DatabaseReference) {
+        self.ref = ref
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(rightButtonTapped))
-
+        mainView.delegate = self
     }
     
     override func loadView() {
@@ -23,5 +35,9 @@ internal final class FormViewController: UIViewController, Logoutable {
     
     @objc func rightButtonTapped() {
         logout()
+    }
+    
+    func newClientButtonPressed(client: Client) {
+        newClient(client: client)
     }
 }

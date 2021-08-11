@@ -43,7 +43,6 @@ internal final class LoginViewController: UIViewController, LoginDelegate,
         
         let credential = FacebookAuthProvider
             .credential(withAccessToken: AccessToken.current!.tokenString)
-        
         Auth.auth().signIn(with: credential, completion: { [weak self] authResult, error in
             if let error = error {
                 let authError = error as NSError

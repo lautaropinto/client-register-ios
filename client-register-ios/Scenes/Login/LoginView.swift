@@ -31,8 +31,6 @@ internal final class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     @objc func backgroundPressed(_ sender: UIView) {
         subviews.forEach{ $0.resignFirstResponder() }
     }

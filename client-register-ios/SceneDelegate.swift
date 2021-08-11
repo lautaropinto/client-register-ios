@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
+import FirebaseDatabase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -27,8 +28,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         let root: UIViewController
         
+        let dbReference = Database.database().reference()
+        
         if Auth.auth().currentUser != nil {
-            root = FormViewController()
+            root = FormViewController(ref: dbReference)
         } else {
             root = LoginViewController()
         }

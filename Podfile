@@ -7,6 +7,7 @@ target 'client-register-ios' do
 
   # Pods for client-register-ios
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
   pod 'FBSDKLoginKit'
 
   target 'client-register-iosTests' do

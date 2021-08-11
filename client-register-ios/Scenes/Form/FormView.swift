@@ -6,6 +6,40 @@
 //
 
 import UIKit
+import FirebaseDatabase
+
+internal struct Client {
+    let name: String
+    let lastname: String
+    let birthdate: String
+    //let age: String
+    
+    init(from field: [String: FieldModel]) {
+        self.name = field["name"]?.value ?? ""
+        self.lastname = field["lastname"]?.value ?? ""
+        self.birthdate = field["birthdate"]?.value ?? ""
+    }
+}
+
+internal protocol ClientAddable {
+    var ref: DatabaseReference { get }
+    
+    func newClient(client: Client)
+}
+
+extension ClientAddable {
+    func newClient(client: Client) {
+        self.ref.child("clients").childByAutoId().setValue([
+            "name": client.name,
+            "lastname": client.lastname,
+            "birthdate": client.birthdate
+        ])
+    }
+}
+
+internal protocol FormDelegate: AnyObject {
+    func newClientButtonPressed(client: Client)
+}
 
 internal struct FieldModel {
     let placeHolder: String
@@ -20,11 +54,12 @@ internal struct FieldModel {
 internal final class FormView: UIView {
     let formTableView = prepareTableView()
     let confirmationButton = prepareConfirmationButton()
+    internal weak var delegate: FormDelegate?
     
-    let fields: [String: FieldModel] = [
+    var fields: [String: FieldModel] = [
         "name": FieldModel(placeHolder: "Nombre"),
         "lastname": FieldModel(placeHolder: "Apellido"),
-        "birthDate": FieldModel(placeHolder: "Fecha de nacimiento"),
+        "birthdate": FieldModel(placeHolder: "Fecha de nacimiento"),
     ]
     
     init() {
@@ -41,6 +76,12 @@ internal final class FormView: UIView {
             guard let cell = $0 as? FormFieldCell else { return }
             cell.input.resignFirstResponder()
         })
+    }
+    
+    @objc func confirmationButtonPressed(_ sender: UIButton) {
+        let client = Client(from: fields)
+        
+        delegate?.newClientButtonPressed(client: client)
     }
 }
 
@@ -72,6 +113,8 @@ extension FormView: ProgramaticalLayoutable {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundPressed(_:)))
         self.addGestureRecognizer(tapGesture)
+        
+        confirmationButton.addTarget(self, action: #selector(confirmationButtonPressed(_:)), for: .touchUpInside)
     }
 }
 
@@ -85,8 +128,11 @@ extension FormView: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FormFieldCell.description()) as? FormFieldCell else {
             return UITableViewCell()
         }
-        
+        cell.id = fields[indexPath.row].key ?? ""
         cell.placeHolder = fields[indexPath.row].value.placeHolder
+        cell.inputEditEnd = { [weak self] text in
+            self?.fields[cell.id]?.value = text
+        }
         
         return cell
     }

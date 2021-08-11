@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 internal protocol FormNavigatable {
     var navigationController: UINavigationController? { get }
@@ -15,7 +16,7 @@ internal protocol FormNavigatable {
 
 extension FormNavigatable {
     func navigateToForm(cleanNavigationStack: Bool) {
-        let form = FormViewController()
+        let form = FormViewController(ref: Database.database().reference())
         if cleanNavigationStack {
             navigationController?.setViewControllers([form], animated: true)
         } else {
