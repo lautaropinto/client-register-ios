@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 internal protocol SignUpable {
     func signUpButtonPressed(username: String, password: String, success: (() ->())?, failure: ((Error) ->())?)
