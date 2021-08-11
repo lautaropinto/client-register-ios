@@ -28,7 +28,6 @@ internal extension UIViewController {
     func removeSpinner() {
         DispatchQueue.main.async {
             spinner?.removeFromSuperview()
-            spinner = nil
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
     }

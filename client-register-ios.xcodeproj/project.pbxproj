@@ -22,6 +22,12 @@
 		61277BF626C38027005203F2 /* FieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BF526C38027005203F2 /* FieldModel.swift */; };
 		61277BF826C3803E005203F2 /* FormDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BF726C3803E005203F2 /* FormDelegate.swift */; };
 		61277BFA26C38051005203F2 /* SignUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BF926C38051005203F2 /* SignUpDelegate.swift */; };
+		61277BFD26C380D1005203F2 /* CRTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BFC26C380D1005203F2 /* CRTextField.swift */; };
+		61277BFF26C38155005203F2 /* UIView+applyShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277BFE26C38155005203F2 /* UIView+applyShadow.swift */; };
+		61277C0126C381C3005203F2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277C0026C381C3005203F2 /* Colors.swift */; };
+		61277C0426C381F9005203F2 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277C0326C381F9005203F2 /* UIColor+hex.swift */; };
+		61277C0626C382C1005203F2 /* CRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277C0526C382C1005203F2 /* CRButton.swift */; };
+		61277C0826C38793005203F2 /* UIView+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277C0726C38793005203F2 /* UIView+shake.swift */; };
 		614C633526BB4595009BD20D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633426BB4595009BD20D /* AppDelegate.swift */; };
 		614C633726BB4595009BD20D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633626BB4595009BD20D /* SceneDelegate.swift */; };
 		614C633926BB4595009BD20D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633826BB4595009BD20D /* ViewController.swift */; };
@@ -80,6 +86,12 @@
 		61277BF526C38027005203F2 /* FieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldModel.swift; sourceTree = "<group>"; };
 		61277BF726C3803E005203F2 /* FormDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDelegate.swift; sourceTree = "<group>"; };
 		61277BF926C38051005203F2 /* SignUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDelegate.swift; sourceTree = "<group>"; };
+		61277BFC26C380D1005203F2 /* CRTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRTextField.swift; sourceTree = "<group>"; };
+		61277BFE26C38155005203F2 /* UIView+applyShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+applyShadow.swift"; sourceTree = "<group>"; };
+		61277C0026C381C3005203F2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		61277C0326C381F9005203F2 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		61277C0526C382C1005203F2 /* CRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRButton.swift; sourceTree = "<group>"; };
+		61277C0726C38793005203F2 /* UIView+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shake.swift"; sourceTree = "<group>"; };
 		614C633126BB4595009BD20D /* client-register-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client-register-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		614C633426BB4595009BD20D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		614C633626BB4595009BD20D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +162,10 @@
 			children = (
 				61277BDC26C33D49005203F2 /* UIViewController+spinner.swift */,
 				61277BEB26C37F38005203F2 /* Dictionary+subscript.swift */,
+				61277BFE26C38155005203F2 /* UIView+applyShadow.swift */,
+				61277C0026C381C3005203F2 /* Colors.swift */,
+				61277C0326C381F9005203F2 /* UIColor+hex.swift */,
+				61277C0726C38793005203F2 /* UIView+shake.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -162,6 +178,15 @@
 				61277BE926C3787A005203F2 /* ClientCell.swift */,
 			);
 			path = ClientList;
+			sourceTree = "<group>";
+		};
+		61277BFB26C380B9005203F2 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				61277BFC26C380D1005203F2 /* CRTextField.swift */,
+				61277C0526C382C1005203F2 /* CRButton.swift */,
+			);
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
 		614C632826BB4595009BD20D = {
@@ -189,6 +214,7 @@
 		614C633326BB4595009BD20D /* client-register-ios */ = {
 			isa = PBXGroup;
 			children = (
+				61277BFB26C380B9005203F2 /* CommonViews */,
 				61277BDB26C33D36005203F2 /* Extensions */,
 				618CEDA626BEF2E600C31AE6 /* GoogleService-Info.plist */,
 				614C638E26BB7899009BD20D /* UseCases */,
@@ -540,7 +566,10 @@
 				614C639726BB8CC6009BD20D /* LoginActionable.swift in Sources */,
 				61277BD326C2FBBF005203F2 /* FormFieldCell.swift in Sources */,
 				61277BF426C38005005203F2 /* NewClient.swift in Sources */,
+				61277C0426C381F9005203F2 /* UIColor+hex.swift in Sources */,
+				61277BFF26C38155005203F2 /* UIView+applyShadow.swift in Sources */,
 				61277BE626C3750C005203F2 /* ClientListViewController.swift in Sources */,
+				61277BFD26C380D1005203F2 /* CRTextField.swift in Sources */,
 				614C633926BB4595009BD20D /* ViewController.swift in Sources */,
 				61277BE826C377F1005203F2 /* ClientListView.swift in Sources */,
 				61277BEE26C37F6D005203F2 /* ClientListMappable.swift in Sources */,
@@ -549,11 +578,14 @@
 				61277BF226C37FE4005203F2 /* Client.swift in Sources */,
 				614C639026BB78B5009BD20D /* Navigatable.swift in Sources */,
 				61277BF026C37FB1005203F2 /* SignUp.swift in Sources */,
+				61277C0826C38793005203F2 /* UIView+shake.swift in Sources */,
 				61277BF826C3803E005203F2 /* FormDelegate.swift in Sources */,
 				61277BD826C333DB005203F2 /* SignUpViewController.swift in Sources */,
+				61277C0126C381C3005203F2 /* Colors.swift in Sources */,
 				614C636D26BB6EF0009BD20D /* LoginView.swift in Sources */,
 				61277BDA26C333E8005203F2 /* SignUpView.swift in Sources */,
 				61277BEC26C37F38005203F2 /* Dictionary+subscript.swift in Sources */,
+				61277C0626C382C1005203F2 /* CRButton.swift in Sources */,
 				614C638D26BB77C5009BD20D /* ProgramaticalLayoutable.swift in Sources */,
 				614C639526BB796C009BD20D /* FormView.swift in Sources */,
 				614C639326BB795D009BD20D /* FormViewController.swift in Sources */,

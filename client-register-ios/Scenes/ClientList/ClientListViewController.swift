@@ -30,6 +30,8 @@ internal final class ClientListViewController: UIViewController, ClientListMappa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        removeSpinner()
+        showSpinner(onView: view)
         getClientList()
     }
     
@@ -38,26 +40,23 @@ internal final class ClientListViewController: UIViewController, ClientListMappa
     }
     
     func getClientList() {
-        showSpinner(onView: view)
         ref.child("clients").getData { [weak self] (error, snapshot) in
             guard let self = self else {
+                self!.removeSpinner()
                 return
             }
-            
             if let error = error {
-                self.removeSpinner()
                 print("Error getting data \(error)")
             }
             else if snapshot.exists() {
                 if let dictionary = snapshot.value as? [String: [String: String]] {
                     self.mainView.clients = self.mapClientList(from: dictionary)
                 }
-                self.removeSpinner()
             }
             else {
-                self.removeSpinner()
                 print("No data available")
             }
+            self.removeSpinner()
         }
     }
     

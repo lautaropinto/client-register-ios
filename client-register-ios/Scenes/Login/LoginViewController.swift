@@ -19,6 +19,11 @@ internal final class LoginViewController: UIViewController, LoginDelegate,
         mainView.delegate = self
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        removeSpinner()
+    }
+    
     override func loadView() {
         self.view = mainView
     }

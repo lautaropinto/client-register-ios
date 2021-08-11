@@ -15,6 +15,11 @@ internal final class SignUpViewController: UIViewController, SignUpDelegate, Sig
         mainView.delegate = self
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        removeSpinner()
+    }
+    
     override func loadView() {
         self.view = mainView
     }

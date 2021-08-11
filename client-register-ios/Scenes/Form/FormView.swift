@@ -8,9 +8,6 @@
 import UIKit
 import FirebaseDatabase
 
-
-
-
 internal final class FormView: UIView {
     let formTableView = prepareTableView()
     let confirmationButton = prepareConfirmationButton()
@@ -57,7 +54,7 @@ extension FormView: ProgramaticalLayoutable {
             confirmationButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             confirmationButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -25),
             confirmationButton.heightAnchor.constraint(equalToConstant: 46),
-            confirmationButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+            confirmationButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             
             formTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             formTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -69,7 +66,7 @@ extension FormView: ProgramaticalLayoutable {
     func setUpAdditionalConfig() {
         formTableView.dataSource = self
         formTableView.delegate = self
-        backgroundColor = .white
+        backgroundColor = .CR.white
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundPressed(_:)))
         self.addGestureRecognizer(tapGesture)
@@ -106,16 +103,16 @@ private func prepareTableView() -> UITableView {
     tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     tableView.bounces = false
     tableView.showsVerticalScrollIndicator = false
-    tableView.backgroundColor = .clear
+    tableView.backgroundColor = .CR.white
     tableView.register(FormFieldCell.self, forCellReuseIdentifier: FormFieldCell.description())
     
     return tableView
 }
 
-private func prepareConfirmationButton() -> UIButton {
-    let button = UIButton()
+private func prepareConfirmationButton() -> CRButton {
+    let button = CRButton()
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle("Aceptar", for: .normal)
+    button.setTitle("Guardar", for: .normal)
     button.setTitleColor(.black, for: .normal)
     
     return button

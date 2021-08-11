@@ -43,7 +43,7 @@ extension ClientListView: ProgramaticalLayoutable {
     func setUpAdditionalConfig() {
         clientsTableView.delegate = self
         clientsTableView.dataSource = self
-        backgroundColor = .white
+        backgroundColor = .CR.white
     }
 }
 

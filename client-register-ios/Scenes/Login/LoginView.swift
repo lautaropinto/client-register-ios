@@ -8,7 +8,7 @@
 import UIKit
 import FBSDKLoginKit
 
-internal final class LoginView: UIView {
+internal final class LoginView: UIView, UITextFieldDelegate {
     let usernameTextField = prepareUsernameTextField()
     let passwordTextField = preparePasswordTextField()
     let signInButton = prepareSignInButton()
@@ -41,11 +41,38 @@ internal final class LoginView: UIView {
             return //TODO: implement error handling.
         }
         
+        if username == "" && password == "" {
+            usernameTextField.shake()
+            passwordTextField.shake()
+            passwordTextField.showError(with: "Por favor ingrese email y contraseña")
+            return
+        }
+        
+        if username == "" {
+            usernameTextField.shake()
+            passwordTextField.showError(with: "El email es obligatorio")
+            return
+        }
+        
+        if password == "" {
+            passwordTextField.shake()
+            passwordTextField.showError(with: "La contraseña es obligatoria")
+            return
+        }
+        
         delegate?.signInButtonPressed(username: username, password: password)
     }
     
     @objc func signUpButtonPressed(_ sender: UIButton) {
         delegate?.signUpButtonPressed()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let crTextField = textField as? CRTextField {
+            crTextField.hideError()
+        }
+        //TODO: add validation
+        return true
     }
 }
 
@@ -67,17 +94,17 @@ extension LoginView: ProgramaticalLayoutable {
             
             passwordTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
             passwordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
-            passwordTextField.topAnchor.constraint(equalTo: usernameTextField.topAnchor, constant: 30),
+            passwordTextField.topAnchor.constraint(equalTo: usernameTextField.topAnchor, constant: 50),
             
             facebookButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             facebookButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             facebookButton.heightAnchor.constraint(equalToConstant: 48),
-            facebookButton.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -30),
+            facebookButton.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -20),
             
             signInButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             signInButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
-            signInButton.heightAnchor.constraint(equalToConstant: 48),
-            signInButton.bottomAnchor.constraint(equalTo: facebookButton.topAnchor, constant: -30),
+            signInButton.heightAnchor.constraint(equalTo: facebookButton.heightAnchor),
+            signInButton.bottomAnchor.constraint(equalTo: facebookButton.topAnchor, constant: -20),
             
             signUpButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             signUpButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
@@ -87,7 +114,7 @@ extension LoginView: ProgramaticalLayoutable {
     }
     
     func setUpAdditionalConfig() {
-        backgroundColor = .white
+        backgroundColor = .CR.white
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundPressed(_:)))
         self.addGestureRecognizer(tapGesture)
@@ -96,33 +123,37 @@ extension LoginView: ProgramaticalLayoutable {
         signUpButton.addTarget(self, action: #selector(signUpButtonPressed(_:)), for: .touchUpInside)
         
         facebookButton.permissions = ["public_profile", "email"]
+        
+        passwordTextField.delegate = self
+        usernameTextField.delegate = self
     }
 }
 
 
 // MARK:- UI components
-internal func prepareUsernameTextField() -> UITextField {
-    let textField = UITextField()
+internal func prepareUsernameTextField() -> CRTextField {
+    let textField = CRTextField()
     textField.translatesAutoresizingMaskIntoConstraints = false
-    textField.placeholder = "Phone, email or username"
+    textField.placeholder = "Email"
+    textField.applyShadow()
     
     return textField
 }
 
-internal func preparePasswordTextField() -> UITextField {
-    let textField = UITextField()
+internal func preparePasswordTextField() -> CRTextField {
+    let textField = CRTextField()
     textField.translatesAutoresizingMaskIntoConstraints = false
     textField.placeholder = "Password"
     textField.isSecureTextEntry = true
+    textField.applyShadow()
     
     return textField
 }
 
-private func prepareSignInButton() -> UIButton {
-    let button = UIButton()
+private func prepareSignInButton() -> CRButton {
+    let button = CRButton()
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle("Login", for: .normal)
-    button.setTitleColor(.black, for: .normal)
+    button.setTitle("Iniciar sesión", for: .normal)
     
     return button
 }
@@ -130,7 +161,7 @@ private func prepareSignInButton() -> UIButton {
 private func prepareSignUpButton() -> UIButton {
     let button = UIButton()
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle("Sign Up", for: .normal)
+    button.setTitle("Crear cuenta", for: .normal)
     button.setTitleColor(.black, for: .normal)
     
     return button

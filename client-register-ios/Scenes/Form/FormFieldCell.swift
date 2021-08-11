@@ -8,6 +8,7 @@
 import UIKit
 
 class FormFieldCell: UITableViewCell {
+    let containerView = prepareContainerView()
     let input = prepareInput()
     var id: String = ""
     var inputEditEnd: ((_ text: String) -> Void)?
@@ -40,27 +41,42 @@ class FormFieldCell: UITableViewCell {
 
 extension FormFieldCell: ProgramaticalLayoutable {
     func buildViewHierarchy() {
-        contentView.addSubview(input)
+        containerView.addSubview(input)
+        contentView.addSubview(containerView)
     }
     
     func setUpConstraints() {
         NSLayoutConstraint.activate([
-            input.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            input.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            input.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            input.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            
+            input.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
+            input.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
+            input.topAnchor.constraint(equalTo: containerView.topAnchor),
+            input.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
         ])
     }
     
     func setUpAdditionalConfig() {
+        backgroundColor = .CR.white
         input.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingDidEnd)
     }
 }
 
-private func prepareInput() -> UITextField {
-    let input = UITextField()
+private func prepareInput() -> CRTextField {
+    let input = CRTextField()
     input.translatesAutoresizingMaskIntoConstraints = false
     input.textAlignment = .center
     
     return input
+}
+
+fileprivate func prepareContainerView() -> UIView {
+    let view = UIView()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.backgroundColor = .CR.white
+    
+    return view
 }
