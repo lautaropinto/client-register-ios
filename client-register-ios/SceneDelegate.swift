@@ -28,10 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         let root: UIViewController
         
-        let dbReference = Database.database().reference()
         
         if Auth.auth().currentUser != nil {
-            root = FormViewController(ref: dbReference)
+            root = ClientListViewController(ref: Database.database().reference())
         } else {
             root = LoginViewController()
         }

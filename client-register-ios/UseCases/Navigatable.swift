@@ -31,9 +31,22 @@ internal protocol SignUpNavigatable {
     func navigateToSignUp()
 }
 
-extension FormNavigatable {
+extension SignUpNavigatable {
     func navigateToSignUp() {
         let signUp = SignUpViewController()
         navigationController?.pushViewController(signUp, animated: true)
+    }
+}
+
+internal protocol ClientListNavigatable {
+    var navigationController: UINavigationController? { get }
+    
+    func navigateToClientList()
+}
+
+extension ClientListNavigatable {
+    func navigateToClientList() {
+        let clientList = ClientListViewController(ref: Database.database().reference())
+        navigationController?.setViewControllers([clientList], animated: true)
     }
 }

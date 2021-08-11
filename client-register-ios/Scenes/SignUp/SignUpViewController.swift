@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, SignUpDelegate, SignUpable, FormNavigatable {
+class SignUpViewController: UIViewController, SignUpDelegate, SignUpable, ClientListNavigatable {
     let mainView = SignUpView()
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class SignUpViewController: UIViewController, SignUpDelegate, SignUpable, FormNa
         showSpinner(onView: view)
         signUpButtonPressed(username: username, password: password, success: { [weak self] in
             self?.removeSpinner()
-            self?.navigateToForm(cleanNavigationStack: true)
+            self?.navigateToClientList()
         }, failure: { [weak self] error in
             print("SignUp - error", error) //TODO: implement error handling.
             self?.removeSpinner()

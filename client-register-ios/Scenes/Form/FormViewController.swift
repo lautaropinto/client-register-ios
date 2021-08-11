@@ -25,7 +25,7 @@ internal final class FormViewController: UIViewController, Logoutable, FormDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(rightButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cerrar sesión", style: .plain, target: self, action: #selector(rightButtonTapped))
         mainView.delegate = self
     }
     
@@ -39,5 +39,6 @@ internal final class FormViewController: UIViewController, Logoutable, FormDeleg
     
     func newClientButtonPressed(client: Client) {
         newClient(client: client)
+        navigationController?.popViewController(animated: true)
     }
 }
