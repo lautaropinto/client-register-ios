@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
+import FBSDKLoginKit
 
 internal protocol FormNavigatable {
     var navigationController: UINavigationController? { get }
@@ -16,7 +18,11 @@ internal protocol FormNavigatable {
 
 extension FormNavigatable {
     func navigateToForm(cleanNavigationStack: Bool) {
-        let form = FormViewController(ref: Database.database().reference())
+        let auth = Auth.auth()
+        let login = LoginManager()
+        let form = FormViewController(ref: Database.database().reference(),
+                                      authManager: auth,
+                                      loginManager: login)
         if cleanNavigationStack {
             navigationController?.setViewControllers([form], animated: true)
         } else {
@@ -46,7 +52,11 @@ internal protocol ClientListNavigatable {
 
 extension ClientListNavigatable {
     func navigateToClientList() {
-        let clientList = ClientListViewController(ref: Database.database().reference())
+        let auth = Auth.auth()
+        let login = LoginManager()
+        let clientList = ClientListViewController(ref: Database.database().reference(),
+                                                  authManager: auth,
+                                                  loginManager: login)
         navigationController?.setViewControllers([clientList], animated: true)
     }
 }

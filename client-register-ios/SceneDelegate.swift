@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import FirebaseDatabase
+import FBSDKLoginKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -30,9 +31,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         if Auth.auth().currentUser != nil {
-            root = ClientListViewController(ref: Database.database().reference())
+            let auth = Auth.auth()
+            let login = LoginManager()
+            root = ClientListViewController(ref: Database.database().reference(),
+                                            authManager: auth,
+                                            loginManager: login)
         } else {
-            root = LoginViewController()
+            let auth = Auth.auth()
+            let loginManager = LoginManager()
+            root = LoginViewController(authManager: auth, loginManager: loginManager)
         }
         
         let navigationController = UINavigationController(rootViewController: root)

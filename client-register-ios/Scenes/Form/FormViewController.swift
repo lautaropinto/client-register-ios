@@ -8,13 +8,18 @@
 import UIKit
 import FirebaseDatabase
 import Firebase
+import FBSDKLoginKit
 
 internal final class FormViewController: UIViewController, Logoutable, FormDelegate, ClientAddable {
     let mainView = FormView()
     var ref: DatabaseReference
+    let authManager: Auth
+    let loginManager: LoginManager
 
-    init(ref: DatabaseReference) {
+    init(ref: DatabaseReference, authManager: Auth, loginManager: LoginManager) {
         self.ref = ref
+        self.authManager = authManager
+        self.loginManager = loginManager
         super.init(nibName: nil, bundle: nil)
     }
     

@@ -7,13 +7,20 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
+import FBSDKLoginKit
 
 internal final class ClientListViewController: UIViewController, ClientListMappable, Logoutable, FormNavigatable {
     let mainView = ClientListView()
     var ref: DatabaseReference
+    let authManager: Auth
+    let loginManager: LoginManager
     
-    init(ref: DatabaseReference) {
+    
+    init(ref: DatabaseReference, authManager: Auth, loginManager: LoginManager) {
         self.ref = ref
+        self.authManager = authManager
+        self.loginManager = loginManager
         super.init(nibName: nil, bundle: nil)
     }
     

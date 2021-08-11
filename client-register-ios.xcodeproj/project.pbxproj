@@ -28,6 +28,8 @@
 		61277C0426C381F9005203F2 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277C0326C381F9005203F2 /* UIColor+hex.swift */; };
 		61277C0626C382C1005203F2 /* CRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277C0526C382C1005203F2 /* CRButton.swift */; };
 		61277C0826C38793005203F2 /* UIView+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277C0726C38793005203F2 /* UIView+shake.swift */; };
+		61277C0A26C3F864005203F2 /* LogInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277C0926C3F864005203F2 /* LogInTests.swift */; };
+		61277C0C26C3FE37005203F2 /* LoginManagerFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61277C0B26C3FE37005203F2 /* LoginManagerFake.swift */; };
 		614C633526BB4595009BD20D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633426BB4595009BD20D /* AppDelegate.swift */; };
 		614C633726BB4595009BD20D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633626BB4595009BD20D /* SceneDelegate.swift */; };
 		614C633926BB4595009BD20D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C633826BB4595009BD20D /* ViewController.swift */; };
@@ -92,6 +94,8 @@
 		61277C0326C381F9005203F2 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		61277C0526C382C1005203F2 /* CRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRButton.swift; sourceTree = "<group>"; };
 		61277C0726C38793005203F2 /* UIView+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shake.swift"; sourceTree = "<group>"; };
+		61277C0926C3F864005203F2 /* LogInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInTests.swift; sourceTree = "<group>"; };
+		61277C0B26C3FE37005203F2 /* LoginManagerFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManagerFake.swift; sourceTree = "<group>"; };
 		614C633126BB4595009BD20D /* client-register-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client-register-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		614C633426BB4595009BD20D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		614C633626BB4595009BD20D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 			children = (
 				614C634B26BB4596009BD20D /* client_register_iosTests.swift */,
 				614C634D26BB4596009BD20D /* Info.plist */,
+				61277C0926C3F864005203F2 /* LogInTests.swift */,
+				61277C0B26C3FE37005203F2 /* LoginManagerFake.swift */,
 			);
 			path = "client-register-iosTests";
 			sourceTree = "<group>";
@@ -601,6 +607,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				614C634C26BB4596009BD20D /* client_register_iosTests.swift in Sources */,
+				61277C0A26C3F864005203F2 /* LogInTests.swift in Sources */,
+				61277C0C26C3FE37005203F2 /* LoginManagerFake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

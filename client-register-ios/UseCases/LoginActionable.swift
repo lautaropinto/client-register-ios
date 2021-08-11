@@ -10,7 +10,9 @@ import FBSDKLoginKit
 import Firebase
 
 /// Implements Login view actions.
-internal protocol LoginDelegate: LoginButtonDelegate {
+internal protocol
+
+LoginDelegate: LoginButtonDelegate {
     /**
      It handles the login action.
      - Parameter `username`: Input in username textfield.
@@ -51,6 +53,8 @@ extension FirebaseSignInActionable {
 
 internal protocol Logoutable {
     var navigationController: UINavigationController? { get }
+    var loginManager: LoginManager { get }
+    var authManager: Auth { get }
     
     func logout()
 }
@@ -58,9 +62,9 @@ internal protocol Logoutable {
 extension Logoutable {
     func logout() {
         do {
-            try Auth.auth().signOut()
-            LoginManager().logOut()
-            let login = LoginViewController()
+            try authManager.signOut()
+            loginManager.logOut()
+            let login = LoginViewController(authManager: authManager, loginManager: loginManager)
             navigationController?.setViewControllers([login], animated: true)
         } catch {
             print("Unable to signout")
