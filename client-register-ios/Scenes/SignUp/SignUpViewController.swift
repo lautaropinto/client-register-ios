@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, SignUpDelegate, SignUpable, ClientListNavigatable {
+internal final class SignUpViewController: UIViewController, SignUpDelegate, SignUpable, ClientListNavigatable {
     let mainView = SignUpView()
     
     override func viewDidLoad() {
@@ -29,6 +29,4 @@ class SignUpViewController: UIViewController, SignUpDelegate, SignUpable, Client
             self?.removeSpinner()
         })
     }
-    
-    
 }

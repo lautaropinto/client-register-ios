@@ -8,54 +8,8 @@
 import UIKit
 import FirebaseDatabase
 
-internal struct Client {
-    let name: String
-    let lastname: String
-    let birthdate: String
-    //let age: String
-    
-    init(from field: [String: FieldModel]) {
-        self.name = field["name"]?.value ?? ""
-        self.lastname = field["lastname"]?.value ?? ""
-        self.birthdate = field["birthdate"]?.value ?? ""
-    }
-    
-    init(from dictionary: [String: Any]) {
-        self.name = dictionary["name"] as? String ?? ""
-        self.lastname = dictionary["lastname"] as? String ?? ""
-        self.birthdate = dictionary["birthdate"] as? String ?? ""
-    }
-}
 
-internal protocol ClientAddable {
-    var ref: DatabaseReference { get }
-    
-    func newClient(client: Client)
-}
 
-extension ClientAddable {
-    func newClient(client: Client) {
-        self.ref.child("clients").childByAutoId().setValue([
-            "name": client.name,
-            "lastname": client.lastname,
-            "birthdate": client.birthdate
-        ])
-    }
-}
-
-internal protocol FormDelegate: AnyObject {
-    func newClientButtonPressed(client: Client)
-}
-
-internal struct FieldModel {
-    let placeHolder: String
-    var value: String?
-    
-    init(placeHolder: String, value: String? = nil) {
-        self.placeHolder = placeHolder
-        self.value = value
-    }
-}
 
 internal final class FormView: UIView {
     let formTableView = prepareTableView()
@@ -134,7 +88,7 @@ extension FormView: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FormFieldCell.description()) as? FormFieldCell else {
             return UITableViewCell()
         }
-        cell.id = fields[indexPath.row].key ?? ""
+        cell.id = fields[indexPath.row].key
         cell.placeHolder = fields[indexPath.row].value.placeHolder
         cell.inputEditEnd = { [weak self] text in
             self?.fields[cell.id]?.value = text
@@ -165,12 +119,4 @@ private func prepareConfirmationButton() -> UIButton {
     button.setTitleColor(.black, for: .normal)
     
     return button
-}
-
-extension Dictionary {
-    subscript(i: Int) -> (key: Key, value: Value) {
-        get {
-            return self[index(startIndex, offsetBy: i)]
-        }
-    }
 }

@@ -8,33 +8,6 @@
 import UIKit
 import Firebase
 
-internal protocol SignUpable {
-    func signUpButtonPressed(username: String, password: String, success: (() ->())?, failure: ((Error) ->())?)
-}
-
-extension SignUpable {
-    func signUpButtonPressed(username: String, password: String, success: (() ->())?, failure: ((Error) ->())?) {
-        Auth.auth().createUser(withEmail: username, password: password) { authResult, error in
-            if let unwrapedError = error {
-                failure?(unwrapedError)
-                return
-            }
-            success?()
-        }
-    }
-    
-
-}
-
-internal protocol SignUpDelegate: AnyObject {
-    /**
-     It handles the sign up action.
-     - Parameter `username`: Input in username textfield.
-     - Parameter `password`: Input in password textfield.
-     */
-    func signUpButtonPressed(username: String, password: String)
-}
-
 internal final class SignUpView: UIView {
     let emailTextField = prepareUsernameTextField()
     let passwordTextField = preparePasswordTextField()

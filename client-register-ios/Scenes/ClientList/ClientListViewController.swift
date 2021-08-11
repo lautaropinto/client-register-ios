@@ -8,21 +8,6 @@
 import UIKit
 import FirebaseDatabase
 
-protocol ClientListMappable {
-    func mapClientList(from dictionary: [String: [String: String]]) -> [Client]
-}
-
-extension ClientListMappable {
-    func mapClientList(from dictionary: [String: [String: String]]) -> [Client] {
-        var array: [Client] = []
-        dictionary.forEach({key, value in
-            array.append(Client(from: value))
-        })
-        
-        return array
-    }
-}
-
 internal final class ClientListViewController: UIViewController, ClientListMappable, Logoutable, FormNavigatable {
     let mainView = ClientListView()
     var ref: DatabaseReference

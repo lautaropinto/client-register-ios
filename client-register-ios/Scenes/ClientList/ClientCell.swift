@@ -48,6 +48,5 @@ private func prepareLabel() -> UILabel {
     label.textColor = .black
     label.numberOfLines = 0
     
-    
     return label
 }
