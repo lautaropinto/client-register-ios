@@ -2,6 +2,27 @@
 
 Esta aplicación permite registrar de a un cliente y visualizar la lista de los mismos. La misma fue desarrollada con Swift 5.4. 
 
+## Correr el proyecto
+
+Primero instalar las dependencias utilizando Cocoapods:
+
+```
+pod install
+```
+
+Luego abrir el archivo *client-register-ios.xcworkspace*
+
+```
+open client-register-ios.xcworkspace
+```
+
+O bien
+
+```
+pod install && open client-register-ios.xcworkspace
+```
+___
+
 ##### Features
 
 - Inicio de sesión con Facebook
